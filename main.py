@@ -2,73 +2,55 @@
 # - O usuário informa nome e idade.
 # - O programa mostra uma lista de 5 filmes, a sala em que cada filme está passando, e a classificação indicativa (idade mínima) de cada filme.
 # - O usuário informa a sala onde está passando o filme desejado.
-# - Se o usuário tiver a idade mínima para o filme, o programa imprime o ingresso e encerra a aplicação.
+# - Se o u
+# suário tiver a idade mínima para o filme, o programa imprime o ingresso e encerra a aplicação.
 # - Se o usuário não tiver a idade mínima para o filme, o programa proíbe a entrada e solicita ao usuário que decida por outro filme.
-import time
-nome = input(f'Informe seu nome:')
-idade = (input)('Informe sua idade:')
 
-idade = int(idade)
+# importa biblioteca
+import os
 
-print('LISTA DE FILMES:\n')
+# recebe o nome do usuário e a idade
+nome = input('Informe o seu nome: ')
+idade = int(input('Informe a sua idade: '))
 
+# limpa console
+os.system('cls')
+
+# inicia o loop
 while True:
-    print('Sala 1 - Deadpool 3 - Classificação 18 anos ')
-    print('Sala 2 - Joker 2 - Classificação 16 anos')
-    print('Sala 3 - Capitão América 4 - Classificação 14 anos' )
-    print('Sala 4 - Divertidamente 2 - 12 anos ')
-    print('Sala 5 - Moana 2 - Classficação Livre') 
+    # exibe a lista de filmes e suas salas
+    print(f'{'-'*20}Filmes em cartaz{'-'*20}\n')
+    print('Sala 1 - Joker 2 . - 16 anos.')
+    print('Sala 2 - Divertidamente 2. - 12 anos.')
+    print('Sala 3 - Capitão America 4. - 14 anos.')
+    print('Sala 4 - Moana 2. - Livre')
+    print('Sala 5 - Deadpool 3. - 18 anos.')
 
+    # recebe a sala escolhida
+    sala = input('Informe a sala desejada: ')
 
-    sala = (input('Informe a sala desejada: '))
-    
+    # limpa console
+    os.system('cls')
+
+    # verifica a sala e a idade
     match sala:
-        case 1 :
-            if idade >= 18:
-                print('O filme escolhido foi Deadpool 3, retire seu ingresso abaixo')
-                break
-            else:
-                    print('Você não pode assistir esse filme, por favor, escolha outra opção.')
-                    time.sleep (1)
-                    continue
-        
-
-        case 2:
-            if idade >= 16:
-                print('O filme escolhido foi Joker 2, retire seu ingresso abaixo')
-                break
-            else:
-                    print('Você não pode assistir esse filme, por favor, escolha outra opção.')
-                    time.sleep (1)
-                    continue
-        case 3: 
-            if idade >= 14:
-                print('O filme escolhido foi Capitão América 2, retire seu ingresso abaixo')
-                break
-            else:
-                    print('Você não pode assistir esse filme, por favor, escolha outra opção.')
-                    time.sleep (1)
-                    continue
-        case 4: 
-            if idade >= 12:
-                print('O filme escolhido foi Divertidamente 2, retire seu ingresso abaixo')
-                break
-            else:
-                print('Você não pode assistir esse filme, por favor, escolha outra opção.')
-                time.sleep (1)
-                continue
-        case 5: 
-            if idade >= 1:
-                print('O filme escolhido foi Deadpool 3, retire seu ingresso abaixo')
-                break
-            else:
-                    print('Você não pode assistir esse filme, por favor, escolha outra opção.')
-                    time.sleep (1)
-                    continue
-        
+        case '1':
+            idade_minima = 16
+        case '2':
+            idade_minima = 12
+        case '3':
+            idade_minima = 14
+        case '4':
+            idade_minima = 0
+        case '5':
+            idade_minima = 18
+        case _:
+            print('Sala inexistente.')
+            continue
     
-                   
- 
-        
-                
-        
+    if idade >= idade_minima:
+        print(f'Ingresso liberado para {nome}. Bom filme!')
+        break
+    else:
+        print(f'Entrada não permitida para {nome}. Favor escolher outro filme!')
+        continue
